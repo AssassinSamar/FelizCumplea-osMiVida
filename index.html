@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños, Mi Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  #countdown {
+    font-size: 1.5em;
+  }
+
+  .carousel {
+    width: 90%;
+    height: auto;
+  }
+
+  .carousel img {
+    height: auto;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heart {
+    width: 80px;
+    height: 70px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 80px;
+    height: 70px;
+  }
+
+  .carousel-text {
+    font-size: 0.9em;
+  }
+
+  .gallery img {
+    width: 45%;
+  }
+
+  .footer-phrase {
+    font-size: 1em;
+    margin: 20px 10px;
+  }
+
+  .small-heart-phrase {
+    font-size: 0.9em;
+    margin-top: 10px;
+  }
+
+  header {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery img {
+    width: 100px;
+  }
+
+  .footer-phrase {
+    font-size: 0.9em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #countdown {
+    font-size: 1.2em;
+  }
+
+  .carousel-text {
+    font-size: 0.8em;
+  }
+
+  .heart {
+    width: 60px;
+    height: 50px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 60px;
+    height: 50px;
+  }
+}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6e6, #fff0f5);
+      color: #a30059;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-top: 20px;
+    }
+    #countdown {
+      font-size: 2em;
+      margin-top: 10px;
+      color: #e60073;
+    }
+    .heart {
+      position: relative;
+      width: 200px;
+      height: 180px;
+      margin: 40px auto;
+      background: red;
+      transform: rotate(-45deg);
+      animation: heartbeat 1.5s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 180px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -90px;
+      left: 0;
+    }
+    .heart::after {
+      left: 100px;
+      top: 0;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: rotate(-45deg) scale(1); }
+      50% { transform: rotate(-45deg) scale(1.2); }
+    }
+    .main-content {
+      display: none;
+    }
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .carousel {
+      width: 200px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-text {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.7);
+      padding: 10px;
+      font-size: 1em;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+    }
+    .gallery img {
+      width: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .footer-phrase {
+      margin-top: 30px;
+      font-style: italic;
+      font-size: 1.2em;
+    }
+    .heart2 {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.4;
+    }
+    header {
+      background: linear-gradient(to right, #ff99cc, #ffccff);
+      padding: 30px 0px;
+      margin-bottom: 50PX;
+      color: #fff;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Faltan solo...</h1>
+        <div id="countdown">Cargando cuenta regresiva...</div>
+        <div class="small-heart-phrase">Cada segundo más cerca de abrazarte 💞</div>
+        
+        <!-- Floating hearts -->
+        <div class="heart2"></div>
+        <div class="heart2"></div>
+        <div class="heart2"></div>
+        <div class="heart2"></div>
+        <div class="heart2"></div>
+        <div class="heart2"></div>
+      </header>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://www.youtube.com/watch?v=yBAx5nBdJqU&pp=ygUVcGFibG8gYWxib3JhbiBzYXR1cm5v" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <div class="main-content" id="mainContent">
+    <div class="content-wrapper">
+      <div class="carousel" id="carouselLeft">
+        <img src="img/foto1.jpg" alt="Galería 1" class="active">
+        <img src="img/foto2.jpg" alt="Galería 1">
+        <img src="img/foto3.jpg" alt="Galería 1">
+        <img src="img/foto4.jpg" alt="Galería 1">
+        <img src="img/foto5.jpg" alt="Galería 1">
+        <div class="carousel-text">"Eres mi inspiración diaria"</div>
+      </div>
+
+      <div class="heart"></div>
+
+      <div class="carousel" id="carouselRight">
+        <img src="img/foto6.jpeg" alt="Galería 1" class="active">
+        <img src="img/foto7.jpeg" alt="Galería 1">
+        <img src="img/foto8.jpeg" alt="Galería 1">
+        <img src="img/foto9.jpeg" alt="Galería 1">
+        <img src="img/foto10.jpeg" alt="Galería 1">
+        <img src="img/foto11.jpeg" alt="Galería 1">
+        <img src="img/foto12.jpeg" alt="Galería 1">
+        <div class="carousel-text">"Contigo todo es más bonito"</div>
+      </div>
+    </div>
+
+    <div class="gallery">
+        <img src="img/foto1.jpg" alt="Galería 1">
+        <img src="img/foto2.jpg" alt="Galería 2">
+        <img src="img/foto3.jpg" alt="Galería 1">       
+        <img src="img/foto4.jpg" alt="Galería 1">
+        <img src="img/foto5.jpg" alt="Galería 2">
+        <img src="img/foto6.jpeg" alt="Galería 3">
+        <img src="img/foto7.jpeg" alt="Galería 4">
+        <img src="img/foto8.jpeg" alt="Galería 3">
+        <img src="img/foto9.jpeg" alt="Galería 4">
+        <img src="img/foto10.jpeg" alt="Galería 3">
+        <img src="img/foto11.jpeg" alt="Galería 4">
+        <img src="img/foto12.jpeg" alt="Galería 3">
+        <img src="img/foto13.jpeg" alt="Galería 4">
+        <img src="img/foto14.jpeg" alt="Galería 3">
+        <img src="img/foto15.jpeg" alt="Galería 4">
+        <img src="img/foto16.jpeg" alt="Galería 3">
+        <img src="img/foto17.jpeg" alt="Galería 4">
+        <img src="img/foto18.jpeg" alt="Galería 3">
+        <img src="img/foto19.jpeg" alt="Galería 4">
+        <img src="img/foto20.jpeg" alt="Galería 3">
+        <img src="img/foto21.jpeg" alt="Galería 4">
+        <img src="img/foto22.jpeg" alt="Galería 3">
+        <img src="img/foto23.jpeg" alt="Galería 4">
+        <img src="img/foto24.jpeg" alt="Galería 3">
+        <img src="img/foto25.jpeg" alt="Galería 4">
+        <img src="img/foto26.jpeg" alt="Galería 3">
+        <img src="img/foto27.jpeg" alt="Galería 3">
+
+    </div>
+
+    <div class="footer-phrase">
+      <h1>"Cada instante contigo vale más que mil años sin ti. Feliz cumpleaños, amor."</h1>
+    </div>
+  </div>
+
+  <script>
+    const countdownElement = document.getElementById("countdown");
+    const mainContent = document.getElementById("mainContent");
+    const bgMusic = document.getElementById("bgMusic");
+
+    const targetDate = new Date("May 2, 2024 00:00:00").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdownElement.style.display = "none";
+        mainContent.style.display = "block";
+        bgMusic.volume = 0.4;
+        bgMusic.play();
+      }
+    }, 1000);
+
+    function rotateCarousel(carouselId) {
+      const carousel = document.getElementById(carouselId);
+      const images = carousel.querySelectorAll("img");
+      let current = 0;
+      setInterval(() => {
+        images[current].classList.remove("active");
+        current = (current + 1) % images.length;
+        images[current].classList.add("active");
+      }, 3000);
+    }
+
+    rotateCarousel("carouselLeft");
+    rotateCarousel("carouselRight");
+  </script>
+</body>
+</html>
